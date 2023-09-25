@@ -1,27 +1,32 @@
 function Person(name, age) {
-	// const this = {}
+  //the next line is done automatically
+  //Because of the New keyword
+  //const this = {};
+  this.name = name;
+  this.age = age;
 
-	// return this
-	this.name = name
-	this.age = age
+  //the next line is done automatically
+  // return this;
 
-	this.levelUp = function () {
-		this.age++
-		console.log(`${this.name} is now ${this.age} years old.`)
-	}
+  this.say = function (sentence) {
+    console.log(`${this.name} says: ${sentence}`);
+  };
+
+  this.growOlder = function () {
+    this.age++;
+    console.log(`${this.name} is now ${this.age} years old.`);
+  };
+
+  this.greet = function (person) {
+    console.log('Here is the person', person);
+    console.log(`${this.name} greets ${person.name}`);
+  };
 }
 
-// const cat = {
-//   name: 'Illiu',
-//   age: 1
-// }
+const susan = new Person('Susan', 45);
+console.log(susan);
 
-// const anotherCat = new cat
+const monika = new Person('Monika', 28);
+monika.say('I am learning this');
 
-const studentOne = new Person("Bob", 25)
-const studentTwo = new Person("Alice", 27)
-studentOne.levelUp()
-studentOne.levelUp()
-studentOne.levelUp()
-studentOne.levelUp()
-console.log(studentOne, studentTwo)
+monika.greet(susan);
